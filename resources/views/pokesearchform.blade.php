@@ -115,6 +115,7 @@
             xhr.onload = function() {
                 if (xhr.status != 200) {
                     console.log(`Error ${xhr.status}: ${xhr.statusText}`);
+                    noResults();
                 } else {                     
                     let json = xhr.response;
                     showResults(json);                     
@@ -122,7 +123,21 @@
             };
         }
 
+        function noResults() {
+            let div = document.getElementById('results');
+            div.innerHTML = ''; 
+            div.innerHTML += '<h2>Sin resultados</h2>';
+            div.innerHTML += '<input type="text" readonly="readonly" value="No existen pokemones con ese nombre" />'; 
+            
+            div.style.display = 'block';
+        }
+
         function showResults(items) {
+
+            if (items.length < 1) {
+                noResults();
+                return; 
+            }
 
             let div = document.getElementById('results');
             div.innerHTML = ''; 
@@ -141,7 +156,7 @@
     <body>    
         <div class="form-style-8">
             <h2>Pokemon Finder</h2>            
-            <form>
+            <form onkeydown="if (event.key == 'Enter') findPokemons(); return event.key != 'Enter';">
                 <p>El que quiere Pokemones, que los busque.</p>
                 <input type="text" id="keyword" name="keyword"  placeholder="Ingrese el nombre a buscar" />
                 <input type="button" value="BUSCAR POKEMONES" onclick="javascript:findPokemons();" />
