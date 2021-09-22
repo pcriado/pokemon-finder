@@ -21,11 +21,16 @@ http://localhost:8000
 ```
 Y utilizar el formulario.
 
-Para ejecutar los tests:
+Para ejecutar los tests, se puede ejecutar desde fuera del docker asumiendo php cli instalado
 ```
 ./artisan test
 ```
-
+o ingresando al contenedor usando docker ps para obtener el ID de container:
+```
+docker ps
+docker exec -it {container_id} sh
+```
+Dependiendo de su instalación, es posible que todos los comandos de [docker] y [docker-compose] requieran [sudo]
 
 ## API
 
@@ -72,8 +77,10 @@ resources/views/pokesearchform.blade.php
 Configuración
 ```
 config/pokesearch.php
+config/env/dev.env
 ```
-Se puede configurar el tiempo de cache, y el endpoint de pokeapi desde config/pokesearch.php
+Se puede configurar el tiempo de cache, y el endpoint de pokeapi desde config/pokesearch.php  
+El archivo dev.env se copia al root de la app para proveer un config de entorno local
 
 Conector para pokeapi.co
 ```
