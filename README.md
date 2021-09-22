@@ -49,10 +49,6 @@ Ejemplo de response body con status 200
 ]
 ```
 
-## Testing
-
-
-
 ## Links útiles
 
 Documentación de pokeapi: https://pokeapi.co/docs/v2
