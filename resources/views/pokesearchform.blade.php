@@ -169,7 +169,7 @@
             <p>
                 Hecho por Pablo<br />
                 <br />
-                <a href="https://github.com/pcriado">Link a mi repo</a><br />
+                <a href="https://github.com/pcriado/pokemon-finder">Link a mi repo</a><br />
                 <br />
             </p>
         </div>                   
